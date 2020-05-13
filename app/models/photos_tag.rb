@@ -1,0 +1,2 @@
+class PhotosTag < ApplicationRecord
+end
