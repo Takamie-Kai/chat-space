@@ -27,8 +27,8 @@
 |------|----|-------|
 |body|text|
 |image|string|
-|user_id|integer|null: false, unique :true|
-|group_id|integer|null: false|
+|user|references|null: false, foreign_key: ture|
+|group|references|null: false, foreign_key: ture|
 
 ### Association
 - belongs_to :user, through: :groups_users
