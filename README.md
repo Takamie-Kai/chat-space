@@ -17,7 +17,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|user_id|integer|null: false|
+
 
 ### Association
 - belongs_to :user, through: :groups_users
