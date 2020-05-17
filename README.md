@@ -31,8 +31,8 @@
 |group|references|null: false, foreign_key: ture|
 
 ### Association
-- belongs_to :user, through: :groups_users
-- belongs_to :group, through: :groups_users
+- belongs_to :user
+- belongs_to :group
 
 ## groups_users table
 |Column|Type|Options|
