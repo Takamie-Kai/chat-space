@@ -25,7 +25,7 @@
 ## messages table
 |Column|Type|Options|
 |------|----|-------|
-|body|text|null: false|
+|body|text|
 |image|string|
 |user_id|integer|null: false, unique :true|
 |group_id|integer|null: false|
