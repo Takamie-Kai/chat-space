@@ -20,7 +20,7 @@
 
 ### Association
 - belongs_to :users, through: :groups_users
-- has_many :message, through: :groups_users
+- has_many :message
 
 ## messages table
 |Column|Type|Options|
