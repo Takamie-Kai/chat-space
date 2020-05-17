@@ -18,9 +18,8 @@
 |------|----|-------|
 |name|string|null: false, index: true|
 
-
 ### Association
-- belongs_to :user, through: :groups_users
+- belongs_to :users, through: :groups_users
 - has_many :message, through: :groups_users
 
 ## messages table
