@@ -1,1 +1,34 @@
-メインチャット
+.main-chat
+  .main-header
+    .main-header__left
+      .main-header__left__group
+        Techcamp1
+      .main-header__left__member
+        member: masa1, masa2
+    .main-header__right
+      = link_to '#', class: "main-header__right__btn" do
+        Edit
+  .main-messages
+    %ul.main-messages__namebox
+      %li.main-messages__namebox__name
+        masa1
+      %li.main-messages__namebox__date
+        2020/05/25
+    %ul.main-messages__content
+      こんにちは
+  .main-messages
+    %ul.main-messages__namebox
+      %li.main-messages__namebox__name
+        masa2
+      %li.main-messages__namebox__date
+        2020/05/25
+    %ul.main-messages__content
+      こんにちは
+  .main-form
+    %form.main-form__new-message
+      .typebox
+        %input{type: "text", class: "typebox__text", placeholder: "type a message"}
+        %label{class: "typebox__image"}
+          = icon('fas', 'image')
+          %input{type: "file", class: "typebox__image__file"}
+      %input{type: "submit", class: "submit-btn"}
