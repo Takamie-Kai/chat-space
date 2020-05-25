@@ -1,0 +1,21 @@
+.side-bar
+  .side-header
+    .side-header__box
+      .side-header__box__user-name
+        masa1
+      .side-header__box__menu
+        = link_to '#', class: "side-header__box__menu__edit-group" do
+          = icon('far', 'edit')
+        = link_to '#', class: "side-header__box__menu__edit-user" do
+          = icon('fas', 'cog')
+  
+  %ul.group
+    %li.group__group-name
+      Techcamp1
+    %li.group__group-message
+      こんにちは
+  %ul.group
+    %li.group__group-name
+      Techcamp2
+    %li.group__group-message
+      こんにちは
