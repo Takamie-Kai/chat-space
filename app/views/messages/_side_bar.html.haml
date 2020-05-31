@@ -2,9 +2,9 @@
   .side-header
     .side-header__box
       .side-header__box__user-name
-        = link_to new_group_path do
+        = current_user.name
       .side-header__box__menu
-        = link_to 'new_group_path', class: "side-header__box__menu__edit-group" do
+        = link_to new_group_path, class: "side-header__box__menu__edit-group" do
           = icon('far', 'edit')
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog')  #歯車のアイコンをクリックすると、作成した編集ページに遷移する
@@ -12,8 +12,8 @@
   %ul.group
     - current_user.groups.each do |group|
       .group
-        = link_to '#' do
+        = link_to group_messages_path(group) do
           .group__name
             = group.name
           .group__message
-            メッセージはまだありません。
+            = group.show_last_message
