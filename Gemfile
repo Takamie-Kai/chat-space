@@ -63,3 +63,7 @@ gem 'devise'
 gem 'erb2haml'
 
 gem 'pry-rails'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
