@@ -16,7 +16,7 @@
     .main-form__new-message
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'typebox__text', placeholder: 'type a message'
-        
+      
         = f.label :image, class: 'typebox__image' do
           = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'typebox__image__file'
