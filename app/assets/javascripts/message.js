@@ -35,30 +35,30 @@ $(function(){
         `
       return html;
     };
- }
-$('#new_message').on('submit', function(e){
- e.preventDefault();
- var formData = new FormData(this);
- var url = $(this).attr('action')
+  }
+  $('#new_message').on('submit', function(e){
+  e.preventDefault();
+  var formData = new FormData(this);
+  var url = $(this).attr('action')
 
-//  投稿ボタンの連打を可能にして複数回投稿可能にする
- $('.submit-btn').removeAttr('data-disable-with');
- 
- $.ajax({
-   url: url,
-   type: "POST",
-   data: formData,
-   dataType: 'json',
-   processData: false,
-   contentType: false
- })
-  .done(function(data){
-    var html = buildHTML(data);
-    $('.main-messages').append(html);
-    $('form')[0].reset();
-    $('.main-messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
-    
-
+  //  投稿ボタンの連打を可能にして複数回投稿可能にする
+  $('.submit-btn').removeAttr('data-disable-with');
+  
+  $.ajax({
+    url: url,
+    type: "POST",
+    data: formData,
+    dataType: 'json',
+    processData: false,
+    contentType: false
   })
-})
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.main-messages').append(html);
+      $('form')[0].reset();
+      $('.main-messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      
+
+    })
+  })
 });
