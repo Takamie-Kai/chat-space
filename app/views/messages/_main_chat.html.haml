@@ -10,28 +10,14 @@
       = link_to edit_group_path(@group.id), class: "main-header__right__btn" do
         Edit
   .main-messages
-    %ul.main-messages__namebox
-      %li.main-messages__namebox__name
-        masa1
-      %li.main-messages__namebox__date
-        2020/05/25
-    %ul.main-messages__content
-      こんにちは
-  .main-messages
-    %ul.main-messages__namebox
-      %li.main-messages__namebox__name
-        masa2
-      %li.main-messages__namebox__date
-        2020/05/25
-    %ul.main-messages__content
-      こんにちは
+    = render @messages
 
   .main-form
-    %form.main-form__new-message
+    .main-form__new-message
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'typebox__text', placeholder: 'type a message'
-        .form__mask
-          = f.label :image, class: 'typebox__image' do
-            = icon('fas', 'image', class: 'icon')
-            = f.file_field :image, class: 'typebox__image__file'
-        = f.submit 'submit', class: 'submit-btn'
+      
+        = f.label :image, class: 'typebox__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'typebox__image__file'
+        = f.submit 'Send', class: 'submit-btn'

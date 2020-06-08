@@ -72,12 +72,13 @@
     position: absolute;
     bottom: 0;
 
-    form{
+    .new_message {
       display: flex;
+      position: relative;
       .typebox {
         display: flex;
         width: 100%;
-        position: relative;
+        
         &__text {
           height: 50px;
           width: 100%;
@@ -90,7 +91,7 @@
           font-size: 1.3rem;
           position: absolute;
           top: 10px;
-          right: 10px;
+          right: 120px;
           &__file {
             display: none;
           }

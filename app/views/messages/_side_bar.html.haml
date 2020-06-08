@@ -6,14 +6,14 @@
       .side-header__box__menu
         = link_to new_group_path, class: "side-header__box__menu__edit-group" do
           = icon('far', 'edit')
-        = link_to edit_user_path(current_user) do
+        = link_to edit_user_path(current_user), class: "side-header__box__menu__edit-user" do
           = icon('fas', 'cog')  #歯車のアイコンをクリックすると、作成した編集ページに遷移する
   
   %ul.group
     - current_user.groups.each do |group|
       .group
         = link_to group_messages_path(group) do
-          .group__name
+          .group__group-name
             = group.name
-          .group__message
+          .group__group-message
             = group.show_last_message
