@@ -1,9 +1,10 @@
 $(function(){ 
+
   function buildHTML(message){
     if ( message.image ) {
       var html =
         `
-          <ul class="main-messages__namebox">
+          <ul class="main-messages__namebox" data-message-id=${message.id}>
             <li class="main-messages_namebox__name">
               ${message.user_name}
             </li>
@@ -15,13 +16,14 @@ $(function(){
             ${message.content}
           </ul>
           <img src=${message.image} >
+        
         `
       return html;
     } 
     else {
       var html =
         `
-          <ul class="main-messages__namebox">
+          <ul class="main-messages__namebox" data-message-id=${message.id}>
             <li class="main-messages_namebox__name">
               ${message.user_name}
             </li>
@@ -32,6 +34,7 @@ $(function(){
           <ul class="main-messages__content">
             ${message.content}
           </ul>
+        
         `
       return html;
     };
@@ -56,9 +59,36 @@ $(function(){
       var html = buildHTML(data);
       $('.main-messages').append(html);
       $('form')[0].reset();
-      $('.main-messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
+      $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});
       
 
     })
   })
+
+  var reloadMessages = function() {
+    var last_message_id = $('.main-messages__content:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length !== 0){
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.main-messages').append(insertHTML);
+        $('.main-messages').animate({ scrollTop: $('.main-messages')[0].scrollHeight});
+      }
+    })
+    .fail(function() {
+      alert('error');
+    });
+  };
+
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
