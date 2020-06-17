@@ -43,7 +43,7 @@
   }
   .main-messages {
     margin-left: 40px;
-    overflow: hidden;
+    overflow: scroll;
     height: calc(100vh - 100px - 90px);
     &__namebox {
       display: flex;
