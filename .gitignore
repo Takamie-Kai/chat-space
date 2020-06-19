@@ -21,3 +21,4 @@ public/uploads/*
 /vender/*
 /vendor/*
 public/uploads/*
+config/secrets.yml

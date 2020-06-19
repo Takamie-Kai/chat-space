@@ -4,7 +4,7 @@ $(function(){
     if ( message.image ) {
       var html =
         `
-          <ul class="main-messages__namebox" data-message-id=${message.id}>
+          <ul class="main-messages__namebox">
             <li class="main-messages_namebox__name">
               ${message.user_name}
             </li>
@@ -12,7 +12,7 @@ $(function(){
               ${message.created_at}
             </li>
           </ul>
-          <ul class="main-messages__content">
+          <ul class="main-messages__content" data-message-id=${message.id}>
             ${message.content}
           </ul>
           <img src=${message.image} >
@@ -23,7 +23,7 @@ $(function(){
     else {
       var html =
         `
-          <ul class="main-messages__namebox" data-message-id=${message.id}>
+          <ul class="main-messages__namebox">
             <li class="main-messages_namebox__name">
               ${message.user_name}
             </li>
@@ -31,7 +31,7 @@ $(function(){
               ${message.created_at}
             </li>
           </ul>
-          <ul class="main-messages__content">
+          <ul class="main-messages__content" data-message-id=${message.id}>
             ${message.content}
           </ul>
         
